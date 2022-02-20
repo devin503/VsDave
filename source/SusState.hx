@@ -3,7 +3,10 @@ import flixel.FlxState;
 import flixel.*;
 import flixel.util.FlxTimer;
 import flash.system.System;
+/**
+    among us
 
+*/
 class SusState extends FlxState
 {
     var sus:FlxSprite;
