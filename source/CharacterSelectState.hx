@@ -63,9 +63,9 @@ class CharacterSelectState extends MusicBeatState
 	
 	public var characters:Array<CharacterInSelect> = 
 	[
-		new CharacterInSelect(['bf', 'bf-pixel', 'bf-christmas'], [1, 1, 1, 1], ["Boyfriend", "Pixel Boyfriend", "Christmas Boyfriend"]),
-		new CharacterInSelect(['ralph', 'nextor'], [1, 1, 1, 1], ['Ralph Nextor', 'Ralph Nextor (Floating?)']),
+		new CharacterInSelect(['bf', 'bf-pixel', 'bf-christmas'/*, 'ralph', 'nextor'*/], [1, 1, 1, 1], ["Boyfriend", "Pixel Boyfriend", "Christmas Boyfriend"/*, "Ralph Nextor", "Ralph Nextor (Floating?)"*/]),
 		new CharacterInSelect(['what-lmao', 'marcello-dave'], [0, 0, 0, 0], ["IF YOU SEE THIS CHRACTER, REPORT IT TO THE DEVS!", "IF YOU SEE THIS CHRACTER, REPORT IT TO THE DEVS!"]),
+		new CharacterInSelect(['ralph', 'nextor'], [1, 1, 1, 1], ['Ralph Nextor', 'Ralph Nextor (Floating?)']),
 		new CharacterInSelect(['tristan', 'tristan-beta'], [2, 0.5, 0.5, 0.5], ["Tristan", 'Tristan (Beta)']),
 		new CharacterInSelect(['dave', 'dave-annoyed', 'dave-splitathon'], [0.25, 0.25, 2, 2], ["Dave", "Dave (Insanity)", 'Dave (Splitathon)']),
 		//these are the canon bambis' names according to marcello, dont change them back
@@ -73,7 +73,7 @@ class CharacterSelectState extends MusicBeatState
 		new CharacterInSelect(['dave-angey'], [2, 2, 0.25, 0.25], ["3D Dave"]),
 		new CharacterInSelect(['tristan-golden'], [0.25, 0.25, 0.25, 2], ["Golden Tristan"]),
 		new CharacterInSelect(['bambi-3d', 'bambi-unfair'], [0, 3, 0, 0], ["3D Bambi", 'Unfair Bambi']),
-		//currentReal order should be 0, 1 (skipped anyways), 3, 4, 2, 5, 7, 6
+		//currentReal order should be 0, 1 (skipped anyways for 8), 3, 4, 2, 5, 7, 6
 	];
 	public function new() 
 	{
@@ -330,6 +330,7 @@ class CharacterSelectState extends MusicBeatState
 			}
 			UpdateBF();
 			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+			trace(currentReal);
 		}
 
 		if (FlxG.keys.justPressed.RIGHT && !selectedCharacter)
@@ -343,7 +344,7 @@ class CharacterSelectState extends MusicBeatState
 			}
 			if(current == 1)
 			{
-				current = 2;
+				current = 4;
 			}
 			switch(current)
 			{
@@ -423,6 +424,8 @@ class CharacterSelectState extends MusicBeatState
 			case 'bambi-angey':
 				char.y = 100 + 450;
 				char.y -= 75;
+			case 'ralph' | 'nextor':
+				char.y = 100 + 150;
 		}
 		add(char);
 		funnyIconMan.animation.play(char.curCharacter);
