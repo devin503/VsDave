@@ -546,8 +546,9 @@ class PlayState extends MusicBeatState
 				boyfriend.y = 100 + 450;
 				boyfriendOldIcon = 'bambi-old';
 			case 'ralph' | 'nextor':
-				boyfriend.y = 100 + 50;
+				boyfriend.y = 100 + 150;
 				boyfriendOldIcon = 'dunce';
+				if (boyfriend.curCharacter == 'nextor') boyfriendOldIcon = 'bitches';
 		}
 
 		if(darkLevels.contains(curStage) && SONG.song.toLowerCase() != "polygonized")
