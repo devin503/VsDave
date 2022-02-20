@@ -545,6 +545,9 @@ class PlayState extends MusicBeatState
 			case 'bambi-angey':
 				boyfriend.y = 100 + 450;
 				boyfriendOldIcon = 'bambi-old';
+			case 'ralph' | 'nextor':
+				boyfriend.y = 100 + 50;
+				boyfriendOldIcon = 'dunce';
 		}
 
 		if(darkLevels.contains(curStage) && SONG.song.toLowerCase() != "polygonized")
@@ -644,10 +647,12 @@ class PlayState extends MusicBeatState
 				credits = 'Screw you!';
 			case 'vs-dave-thanksgiving':
 				credits = 'What the hell!';
+			case 'house':
+				credits = 'among us';
 			default:
 				credits = '';
 		}
-		var randomThingy:Int = FlxG.random.int(0, 2);
+		var randomThingy:Int = FlxG.random.int(0, 3);
 		var engineName:String = 'stupid';
 		switch(randomThingy)
 	    {
@@ -657,6 +662,8 @@ class PlayState extends MusicBeatState
 				engineName = 'Bambi ';
 			case 2:
 				engineName = 'Tristan ';
+			case 3:
+				engineName = 'Expunged ';
 		}
 		var creditsText:Bool = credits != '';
 		var textYPos:Float = healthBarBG.y + 50;
