@@ -64,6 +64,7 @@ class CharacterSelectState extends MusicBeatState
 	public var characters:Array<CharacterInSelect> = 
 	[
 		new CharacterInSelect(['bf', 'bf-pixel', 'bf-christmas'], [1, 1, 1, 1], ["Boyfriend", "Pixel Boyfriend", "Christmas Boyfriend"]),
+		new CharacterInSelect(['ralph', 'nextor'], [1, 1, 1, 1], ['Ralph Nextor', 'Ralph Nextor (Floating?)']),
 		new CharacterInSelect(['what-lmao', 'marcello-dave'], [0, 0, 0, 0], ["IF YOU SEE THIS CHRACTER, REPORT IT TO THE DEVS!", "IF YOU SEE THIS CHRACTER, REPORT IT TO THE DEVS!"]),
 		new CharacterInSelect(['tristan', 'tristan-beta'], [2, 0.5, 0.5, 0.5], ["Tristan", 'Tristan (Beta)']),
 		new CharacterInSelect(['dave', 'dave-annoyed', 'dave-splitathon'], [0.25, 0.25, 2, 2], ["Dave", "Dave (Insanity)", 'Dave (Splitathon)']),
@@ -96,12 +97,12 @@ class CharacterSelectState extends MusicBeatState
 
 		if (FlxG.save.data.unlockedcharacters == null)
 		{
-			FlxG.save.data.unlockedcharacters = [true,true,false,false,false,false,false,false];
+			FlxG.save.data.unlockedcharacters = [true,true,true,false,false,false,false,false,false];
 		}
 
 		if(isDebug)	
 		{
-			FlxG.save.data.unlockedcharacters = [true,true,true,true,true,true,true,true]; //unlock everyone
+			FlxG.save.data.unlockedcharacters = [true,true,true,true,true,true,true,true,true]; //unlock everyone
 		}
 
 		FlxG.sound.playMusic(Paths.music("goodEnding"),1,true);
