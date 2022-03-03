@@ -587,7 +587,7 @@ class PlayState extends MusicBeatState
 		strumLine = new FlxSprite(0, 50).makeGraphic(FlxG.width, 10);
 		strumLine.scrollFactor.set();
 
-		if (FlxG.save.data.downscroll || SONG.song.toLowerCase() == "unfairness")
+		// if (FlxG.save.data.downscroll || SONG.song.toLowerCase() == "unfairness")
 			strumLine.y = FlxG.height - 165;
 
 		strumLineNotes = new FlxTypedGroup<FlxSprite>();
@@ -621,7 +621,7 @@ class PlayState extends MusicBeatState
 		FlxG.fixedTimestep = false;
 
 		healthBarBG = new FlxSprite(0, FlxG.height * 0.9).loadGraphic(Paths.image('healthBar'));
-		if (FlxG.save.data.downscroll || SONG.song.toLowerCase() == "unfairness")
+		//if (FlxG.save.data.downscroll || SONG.song.toLowerCase() == "unfairness")
 			healthBarBG.y = 50;
 		healthBarBG.screenCenter(X);
 		healthBarBG.scrollFactor.set();
@@ -651,7 +651,7 @@ class PlayState extends MusicBeatState
 			case 'house':
 				credits = 'among us';
 			default:
-				credits = '';
+				credits = 'haha funny unfairness mechanics in EVERY song';
 		}
 		var randomThingy:Int = FlxG.random.int(0, 3);
 		var engineName:String = 'stupid';
@@ -1631,8 +1631,8 @@ class PlayState extends MusicBeatState
 			});
 		}
 
-		if (SONG.song.toLowerCase() == 'unfairness' && !inCutscene) // fuck you
-			{
+		/* //MAKIN THIS GLOBAL BECAUSE YES if (SONG.song.toLowerCase() == 'unfairness' && !inCutscene) // fuck you
+			{ */
 				playerStrums.forEach(function(spr:FlxSprite)
 				{
 					spr.x = ((FlxG.width / 2) - (spr.width / 2)) + (Math.sin(elapsedtime + (spr.ID)) * 300);
@@ -1643,7 +1643,7 @@ class PlayState extends MusicBeatState
 					spr.x = ((FlxG.width / 2) - (spr.width / 2)) + (Math.sin((elapsedtime + (spr.ID )) * 2) * 300);
 					spr.y = ((FlxG.height / 2) - (spr.height / 2)) + (Math.cos((elapsedtime + (spr.ID)) * 2) * 300);
 				});
-			}
+			//}
 			
 		FlxG.camera.setFilters([new ShaderFilter(screenshader.shader)]); // this is very stupid but doesn't effect memory all that much so
 		if (shakeCam && eyesoreson)
@@ -2114,19 +2114,19 @@ class PlayState extends MusicBeatState
 					notes.remove(daNote, true);
 					daNote.destroy();
 				}
-				switch (SONG.song.toLowerCase())
+				/*switch (SONG.song.toLowerCase())
 				{
-					case 'unfairness':
+					case 'unfairness': */
 						if (daNote.MyStrum != null)
 						{
 							daNote.y = (daNote.MyStrum.y - (Conductor.songPosition - daNote.strumTime) * (-0.45 * FlxMath.roundDecimal(SONG.speed * daNote.LocalScrollSpeed, 2)));
 						}
-					default:
+					/*default:
 						if (FlxG.save.data.downscroll)
 							daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (-0.45 * FlxMath.roundDecimal(SONG.speed * daNote.LocalScrollSpeed, 2)));
 						else
 							daNote.y = (strumLine.y - (Conductor.songPosition - daNote.strumTime) * (0.45 * FlxMath.roundDecimal(SONG.speed * daNote.LocalScrollSpeed, 2)));
-				}
+				} */
 				// trace(daNote.y);
 				// WIP interpolation shit? Need to fix the pause issue
 				// daNote.y = (strumLine.y - (songTime - daNote.strumTime) * (0.45 * PlayState.SONG.speed));
